@@ -1,0 +1,330 @@
+/*width 1650px로 일단 고정*/
+.ProductImg{
+  cursor: pointer;
+}
+/*Nav-Bar*/
+.navigation-bar{
+  width: 1650px;
+  height: 100px;
+  display: flex;
+  
+}
+.navigation-menu{
+width: 100%;
+height: 60px;
+background-color: darkslategrey;
+}
+.logo{
+  width: 400px;
+  background-image:url(/public/logo.png);
+  background-size: 75% 100%;
+  background-position: center;
+  cursor: pointer;
+}
+.searchbar{
+  position: relative;
+  width: 450px;
+  left: 250px;
+  padding-top: 33px;
+}
+.searchbar input{
+  width: 400px;
+  height: 40px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  text-align: center;
+  padding-right: 55px;
+}
+.search-icon{
+  position: relative;
+  display: inline;
+  top: -3px;
+  left: -40px;
+  cursor: pointer;
+    
+}
+.util-list{
+    position: relative;
+    left:500px;
+
+}
+.util-list ul{
+  list-style-type: none;
+}
+
+.util-list li{
+  cursor: pointer;
+  padding-top: 10px;
+  float: left;
+  margin: 15px;
+  
+}
+
+/*Watched-Box*/
+.watchedBox{
+  margin-top: 5px;
+  border: 1px solid black;
+  border-radius: 9px;
+  background-color: white;
+  padding: 5px;
+  position: sticky;
+  float: right;
+  top: 50px;
+  }
+.watched{
+  list-style-type: none;
+  display: inline;
+  box-sizing: content-box;
+  }
+  .watched li{
+    margin-bottom: 5px;
+  }
+.watched img{
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+}
+/*Banner*/
+
+/*Carousel*/
+.carousel-items img{
+  width: 1903px;
+  height: 700px;
+}
+/*Login*/
+
+.LoginWrap{
+  height: 900px;
+  padding-top: 90px;
+  
+}
+.LoginBox{
+  margin: 0 auto;
+  padding: 30px;
+  height: 700px;
+  width: 500px;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 20px;
+}
+.LoginContent{
+font-size: 20px;
+}
+.LoginTitle{
+  height: 100px;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+.LoginContent li{
+  padding-bottom: 10px;
+}
+
+.LoginContent ul{
+  padding: 0;
+  list-style-type: none;
+}
+.LoginContent input{
+padding-left: 20px;
+border: 1px solid gray;
+border-radius: 20px;
+}
+.LoginCheckbox{
+  font-size: 18px;
+}
+.LoginId p{
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+.LoginPw p{
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+.LoginBtn{
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+  color: white;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.836);
+}
+.LoginContent label::after{
+  content: "|";
+  margin-right: 10px;
+}
+.naver-btn{
+  background: #2db400 url(/public/img-login-naver.png) left 40px center no-repeat ;
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 190px;
+  font-weight: bold;
+}
+.kakao-btn{
+  background: #fae12d url(/public/img-login-kakao.png) left 40px center no-repeat;
+  color: black;
+  text-align: left;
+  padding-left: 190px;
+  font-weight: bold; 
+}
+.facebook-btn{
+  background: #3c5a9a url(/public/img-login-facebook.png) left 40px center no-repeat;
+  text-align: left;
+  padding-left: 190px;
+  font-weight: bold;
+}
+/*Cart*/
+.CartHeader{
+  border-bottom: 3px solid red;
+}
+.CartTable table{
+  margin-top: 10px;
+}
+.CartTable{
+  width: 1200px;
+  margin: 0 auto;
+}
+.Cart th{
+  height : 150px;
+  width: 250px;
+}
+.CartPlusBtn,.CartMinusBtn{
+  width: 30px;
+  height: 30px;
+  border: 1px solid gray;
+}
+.CartDeleteBtn{
+  border: 1px solid gray;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+.Cart th,.Cart td{
+  border-bottom: 1px solid gray;
+
+}
+
+.CartBill th{
+  border: 1px solid gray;
+  border-top: 3px solid black;
+  width: 400px;
+  height: 100px;
+}
+table th:first-child,
+table td:first-child{
+border-left: 0;
+}
+table th:last-child,
+table td:last-child{
+border-right: 0;
+}
+.CartPrice{
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.icon-minus, .icon-equal{
+  position: relative;
+}
+
+
+.icon-minus::before{
+  position: absolute;
+  display: inline-block;
+  content: '';
+  width: 28px;
+  height: 28px;
+  left: -15px;
+  background: url(/public/icon-minusequal.png) no-repeat;
+
+}
+.icon-equal::before{
+  position: absolute;
+  display: inline-block;
+  content: '';
+  width: 28px;
+  height: 28px;
+  left: -15px;
+  background: url(/public/icon-minusequal.png) no-repeat -28px 0px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+  width: 100%;
+  height: 200px;
+  padding-left: 150px;
+  background-color: lightgray;
+}
