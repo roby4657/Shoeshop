@@ -63,7 +63,7 @@ function Detail(props) {
             <button
               className="btn btn-danger"
               onClick={() => {
-                dispatch(addCart({ id: para.id, name: para.title, count: 1,price: para.price }));
+                dispatch(addCart({ id: para.id, name: para.title, count: 1,price: para.price, content : para.content }));
                 if(window.confirm(`상품이 장바구니에 담겼습니다.\n장바구니로 이동하시겠습니까?`))
                 navigate('/Cart')                
                               }}
