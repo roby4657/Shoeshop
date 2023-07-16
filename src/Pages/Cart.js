@@ -33,13 +33,19 @@ function Cart() {
                 <tr key={i}>
                   <td>{a.id}</td>
                   <td>
+                    <div style={{display: 'flex',flexDirection: 'column'}}>
                     <img
                       src={`https://raw.githubusercontent.com/roby4657/db/main/shoes${
                         a.id + 1
                       }.jpg`}
                       height={120} width={150}
                     ></img>
-                    {a.name}
+                    <span style={{padding:'15px'}}>
+                      <h5>{a.name}</h5>
+                      <p>{a.content}</p>
+                    </span>
+                    </div>
+                    
                   </td>
                   <td>
                     <button 
