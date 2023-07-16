@@ -8,6 +8,7 @@ function Cart() {
   let dispatch = useDispatch();
   let totprice=0;
   
+  
 
   return (
     <div>
@@ -68,7 +69,7 @@ function Cart() {
                     </button>
                   </td>
                   <td>
-                    <span>{a.price*a.count}원</span>
+                    <span>{(a.price*a.count).toLocaleString()}원</span>
                   </td>
             
                 </tr>
@@ -82,19 +83,19 @@ function Cart() {
             <th>
               <div className="CartPrice">
                 <span>주문금액</span>
-                <span>{totprice}원</span>
+                <span>{(totprice).toLocaleString()}원</span>
               </div>
             </th>
             <th className="icon-minus">
               <div className="CartPrice">
                 <span>할인금액</span>
-                <span>{totprice*0.1}원</span>
+                <span>{(totprice*0.1).toLocaleString()}원</span>
               </div>
             </th>
             <th className="icon-equal">
               <div className="CartPrice">
                 <span>총 결제금액</span>
-                <span>{totprice*0.9}원</span>
+                <span>{(totprice*0.9).toLocaleString()}원</span>
               </div>
             </th>
           </thead>
@@ -102,19 +103,19 @@ function Cart() {
             <td>
               <div className="CartPrice">
                 <span>상품금액</span>
-                <span>{totprice}원</span>
+                <span>{(totprice).toLocaleString()}원</span>
               </div>
             </td>
             <td>
               <div className="CartPrice">
                 <span>프로모션 10%</span>
-                <span>{totprice*0.1}원</span>
+                <span>{(totprice*0.1).toLocaleString()}원</span>
               </div>
             </td>
             <td>
               <div className="CartPrice">
                 <span>결제예정금액</span>
-                <span>{totprice*0.9}원</span>
+                <span>{(totprice*0.9).toLocaleString()}원</span>
               </div>
             </td>
           </tbody>

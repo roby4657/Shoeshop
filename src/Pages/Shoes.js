@@ -14,7 +14,7 @@ function Shoes(props) {
           }
           />
           <h4>{a.title}</h4>
-          <p>{a.price}원</p>
+          <p>{a.price.toLocaleString()}원</p>
         </div>
       );
     });
