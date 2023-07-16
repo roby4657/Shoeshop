@@ -37,7 +37,7 @@ function Cart() {
                       src={`https://raw.githubusercontent.com/roby4657/db/main/shoes${
                         a.id + 1
                       }.jpg`}
-                      height={120}
+                      height={120} width={150}
                     ></img>
                     {a.name}
                   </td>
