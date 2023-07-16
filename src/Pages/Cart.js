@@ -13,7 +13,7 @@ function Cart() {
     <div>
       <div className="CartTable">
         <div className="CartHeader">
-          <h2>장바구니</h2>
+          <h2 style={{marginTop:'20px'}}>장바구니</h2>
         </div>
         <table className="Cart">
           <thead>
