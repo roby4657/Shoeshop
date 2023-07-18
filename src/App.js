@@ -14,9 +14,11 @@ import {
 } from "react-icons/fi";
 import Login from "./Pages/Login";
 import ImageSlide from "./Pages/ImageSlide";
+import SearchResult from "./Pages/SearchResult";
 
 function App() {
   const [shoe, setShoe] = useState(data);
+  const [search,setSearch]=useState([]);
   const navigate = useNavigate();
   const [click, setClick] = useState(2);
   const watchedItem = JSON.parse(localStorage.getItem("watched"));
@@ -70,13 +72,24 @@ function App() {
               placeholder="검색어를 입력하세요"
               ref={searchvalue}
               onInput={(e) => {
-                console.log(e.currentTarget.value);
+                console.log(e.currentTarget.value)
+                if(e.currentTarget.value===''){
+                  setSearch([]);}
+                  else{
+                     setSearch(shoe.filter((item)=>{
+                if((item.title.toLowerCase()).includes((e.currentTarget.value).toLowerCase())){
+                  return item;
+                }
+                }))
+                  }
+                 ;
+                
+                
               }}
 
               onClick={(event) => {
                 let target = event.currentTarget;
                 const addSearchWindow = (e) => {
-                  console.log('a')
                   if (e.target !== target) {
                     searchresult.current.classList.remove("show");
                   document.removeEventListener('click',addSearchWindow)}}
@@ -129,7 +142,7 @@ function App() {
             </div>
             <div>
               <div>
-                <Shoes shoe={shoe}></Shoes>
+                <SearchResult search={search}/>
               </div>
             </div>
             <div></div>
