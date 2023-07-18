@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import { data, Detail } from "./Pages/Detail.js";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
@@ -16,21 +16,22 @@ import Login from "./Pages/Login";
 import ImageSlide from "./Pages/ImageSlide";
 
 function App() {
-  let [shoe, setShoe] = useState(data);
-  let navigate = useNavigate();
-  let [click, setClick] = useState(2);
-  let [loading, setLoading] = useState(false);
-  let watchedItem = JSON.parse(localStorage.getItem("watched"));
+  const [shoe, setShoe] = useState(data);
+  const navigate = useNavigate();
+  const [click, setClick] = useState(2);
+  const watchedItem = JSON.parse(localStorage.getItem("watched"));
   if (watchedItem === null) {
     localStorage.setItem("watched", JSON.stringify([]));
   }
   const location = useLocation();
+  const searchresult = useRef(null);
+  const searchvalue = useRef(null);
 
   function Watched() {
     //localStorage에 있는 데이터를 가져온 후 3개까지만 보여주기.
 
-    let watchedList = [];
-    let watchedData = JSON.parse(localStorage.getItem("watched"));
+    const watchedList = [];
+    const watchedData = JSON.parse(localStorage.getItem("watched"));
 
     for (let i = 0; i < 3; i++) {
       if (watchedData[i] === undefined) {
@@ -41,7 +42,7 @@ function App() {
               src={`https://raw.githubusercontent.com/roby4657/db/main/shoes${
                 watchedData[i] + 1
               }.jpg`}
-              alt="" 
+              alt=""
               onClick={() => {
                 navigate(`/detail/${watchedData[i] + 1}`);
               }}
@@ -55,45 +56,84 @@ function App() {
 
   return (
     <div className="App">
-      <div className="navigation-bar">
-        <div
-          className="logo"
-          onClick={() => {
-            navigate("/");
-          }}
-        ></div>
-        <div className="searchbar">
-          <input type="text" placeholder="검색어를 입력하세요" />
-          <FiSearch className="search-icon" size={25} />
-        </div>
+      <div className="navigation-wrap">
+        <div className="navigation-bar">
+          <div
+            className="logo"
+            onClick={() => {
+              navigate("/");
+            }}
+          ></div>
+          <div className="searchbar">
+            <input
+              type="text"
+              placeholder="검색어를 입력하세요"
+              ref={searchvalue}
+              onInput={(e) => {
+                console.log(e.currentTarget.value);
+              }}
 
-        <div className="util-list">
-          <ul>
-            <li
-              onClick={() => {
-                navigate("/login");
+              onClick={(event) => {
+                let target = event.currentTarget;
+                const addSearchWindow = (e) => {
+                  console.log('a')
+                  if (e.target !== target) {
+                    searchresult.current.classList.remove("show");
+                  document.removeEventListener('click',addSearchWindow)}}
+
+
+                searchresult.current.classList.add("show");
+                document.addEventListener("click",addSearchWindow);
               }}
-            >
-              <FiLogIn size={35} />
-              <div>Login</div>
-            </li>
-            <li>
-              <FiUserCheck size={35} />
-              <div>Join</div>
-            </li>
-            <li
-              onClick={() => {
-                navigate("/cart");
-              }}
-            >
-              <FiShoppingCart size={35} />
-              <div>&nbsp;Cart</div>
-            </li>
-            <li>
-              <FiHelpCircle size={35} />
-              <div>Help</div>
-            </li>
-          </ul>
+            />
+            <FiSearch className="search-icon" size={25} />
+          </div>
+
+          <div className="util-list">
+            <ul>
+              <li
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                <FiLogIn size={35} />
+                <div>Login</div>
+              </li>
+              <li>
+                <FiUserCheck size={35} />
+                <div>Join</div>
+              </li>
+              <li
+                onClick={() => {
+                  navigate("/cart");
+                }}
+              >
+                <FiShoppingCart size={35} />
+                <div>&nbsp;Cart</div>
+              </li>
+              <li>
+                <FiHelpCircle size={35} />
+                <div>Help</div>
+              </li>
+            </ul>
+          </div>
+          <div className="search-result" ref={searchresult}>
+            <div>
+              <button
+                onClick={() => {
+                  searchresult.current.classList.remove("show");
+                }}
+              >
+                X
+              </button>
+            </div>
+            <div>
+              <div>
+                <Shoes shoe={shoe}></Shoes>
+              </div>
+            </div>
+            <div></div>
+          </div>
         </div>
       </div>
       <div className="navigation-menu"></div>
@@ -128,19 +168,18 @@ function App() {
               </div>
               <button
                 onClick={() => {
-                    setClick(click + 1);
-                    axios
-                      .get(
-                        `https://raw.githubusercontent.com/roby4657/db/main/db${click}.json`
-                      )
-                      .then((data) => {
-                        let shoe2 = [...shoe, ...data.data];
-                        setShoe(shoe2);
-                      })
-                      .catch(() => {
-                        alert("마지막 상품입니다.");
-                      });
-                  
+                  setClick(click + 1);
+                  axios
+                    .get(
+                      `https://raw.githubusercontent.com/roby4657/db/main/db${click}.json`
+                    )
+                    .then((data) => {
+                      let shoe2 = [...shoe, ...data.data];
+                      setShoe(shoe2);
+                    })
+                    .catch(() => {
+                      alert("마지막 상품입니다.");
+                    });
 
                   // if (click > 3) {
                   //   alert("마지막 상품입니다.");
