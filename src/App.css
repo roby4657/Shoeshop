@@ -47,10 +47,19 @@ background-color: darkslategrey;
   top: 73px;
   width: 500px;
   height: 400px;
-  background-color: gainsboro;
+  background-color: white;
   z-index: 2;
-  display: none;
+  display: none; 
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: 10px;
  
+}
+.SearchResultBox{
+  display: flex;
+  flex-wrap: wrap;
+  
+  align-items: center;
 }
 .show{
   display: block;

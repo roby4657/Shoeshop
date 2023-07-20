@@ -18,7 +18,7 @@ import SearchResult from "./Pages/SearchResult";
 
 function App() {
   const [shoe, setShoe] = useState(data);
-  const [search,setSearch]=useState([]);
+  const [search, setSearch] = useState([]);
   const navigate = useNavigate();
   const [click, setClick] = useState(2);
   const watchedItem = JSON.parse(localStorage.getItem("watched"));
@@ -72,31 +72,33 @@ function App() {
               placeholder="검색어를 입력하세요"
               ref={searchvalue}
               onInput={(e) => {
-                console.log(e.currentTarget.value)
-                if(e.currentTarget.value===''){
-                  setSearch([]);}
-                  else{
-                     setSearch(shoe.filter((item)=>{
-                if((item.title.toLowerCase()).includes((e.currentTarget.value).toLowerCase())){
-                  return item;
+                if (e.currentTarget.value === "") {
+                  setSearch([]);
+                } else {
+                  setSearch(
+                    shoe.filter((item) => {
+                      if (
+                        item.title
+                          .toLowerCase()
+                          .includes(e.currentTarget.value.toLowerCase())
+                      ) {
+                        return item;
+                      }
+                    })
+                  );
                 }
-                }))
-                  }
-                 ;
-                
-                
               }}
-
               onClick={(event) => {
                 let target = event.currentTarget;
                 const addSearchWindow = (e) => {
                   if (e.target !== target) {
                     searchresult.current.classList.remove("show");
-                  document.removeEventListener('click',addSearchWindow)}}
-
+                    document.removeEventListener("click", addSearchWindow);
+                  }
+                };
 
                 searchresult.current.classList.add("show");
-                document.addEventListener("click",addSearchWindow);
+                document.addEventListener("click", addSearchWindow);
               }}
             />
             <FiSearch className="search-icon" size={25} />
@@ -132,7 +134,7 @@ function App() {
           </div>
           <div className="search-result" ref={searchresult}>
             <div>
-              <button
+              <button style={{position:'relative',left:'440px'}}
                 onClick={() => {
                   searchresult.current.classList.remove("show");
                 }}
@@ -140,13 +142,12 @@ function App() {
                 X
               </button>
             </div>
-            <div>
-              <div>
-                <SearchResult search={search}/>
-              </div>
+
+            <div className="SearchResultBox">
+              <SearchResult search={search} />
             </div>
-            <div></div>
           </div>
+
         </div>
       </div>
       <div className="navigation-menu"></div>
