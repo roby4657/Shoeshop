@@ -15,6 +15,7 @@ import {
 import Login from "./Pages/Login";
 import ImageSlide from "./Pages/ImageSlide";
 import SearchResult from "./Pages/SearchResult";
+import Join from "./Pages/Join";
 
 function App() {
   const [shoe, setShoe] = useState(data);
@@ -114,7 +115,11 @@ function App() {
                 <FiLogIn size={35} />
                 <div>Login</div>
               </li>
-              <li>
+              <li
+                onClick={() => {
+                  navigate("/join");
+                }}
+              >
                 <FiUserCheck size={35} />
                 <div>Join</div>
               </li>
@@ -134,7 +139,8 @@ function App() {
           </div>
           <div className="search-result" ref={searchresult}>
             <div>
-              <button style={{position:'relative',left:'440px'}}
+              <button
+                style={{ position: "relative", left: "440px" }}
                 onClick={() => {
                   searchresult.current.classList.remove("show");
                 }}
@@ -147,7 +153,6 @@ function App() {
               <SearchResult search={search} />
             </div>
           </div>
-
         </div>
       </div>
       <div className="navigation-menu"></div>
@@ -194,22 +199,6 @@ function App() {
                     .catch(() => {
                       alert("마지막 상품입니다.");
                     });
-
-                  // if (click > 3) {
-                  //   alert("마지막 상품입니다.");
-                  // } else {
-                  //   setClick(click + 1);
-                  //   axios
-                  //     .get(
-                  //       `https://raw.githubusercontent.com/roby4657/db/main/db${click}.json`
-                  //     )
-                  //     .then((data) => {
-                  //       let shoe2 = [...shoe, ...data.data];
-                  //       setShoe(shoe2);
-                  //     })
-                  //     .catch(() => {
-                  //     });
-                  // }
                 }}
               >
                 상품 더보기
@@ -224,6 +213,7 @@ function App() {
         ></Route>
 
         <Route path="/cart" element={<Cart></Cart>}></Route>
+        <Route path="/join" element={<Join />}></Route>
       </Routes>
       <div className="footer">
         <img src="logo.png" width={150} />

@@ -2,6 +2,64 @@
 .ProductImg{
   cursor: pointer;
 }
+/*Page*/
+.PageWrap{
+  height: 900px;
+  padding-top: 90px;
+  
+}
+.PageBox{
+  margin: 0 auto;
+  padding: 30px;
+  height: 700px;
+  width: 500px;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 20px;
+}
+.PageContent{
+font-size: 20px;
+}
+.PageTitle{
+  height: 100px;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+.PageContent li{
+  padding-bottom: 10px;
+}
+
+.PageContent ul{
+  padding: 0;
+  list-style-type: none;
+}
+.PageContent input{
+padding-left: 20px;
+border: 1px solid gray;
+border-radius: 20px;
+}
+.PageCheckbox{
+  font-size: 18px;
+}
+.PageContent li>p{
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+.PageBtn{
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+  color: white;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.836);
+}
+.PageContent label::after{
+  content: "|";
+  margin-right: 10px;
+}
 /*Nav-Bar*/
 .navigation-wrap{
   width: 100%;
@@ -124,68 +182,6 @@ background-color: darkslategrey;
 }
 /*Login*/
 
-.LoginWrap{
-  height: 900px;
-  padding-top: 90px;
-  
-}
-.LoginBox{
-  margin: 0 auto;
-  padding: 30px;
-  height: 700px;
-  width: 500px;
-  border: 1px solid gray;
-  background-color: white;
-  border-radius: 20px;
-}
-.LoginContent{
-font-size: 20px;
-}
-.LoginTitle{
-  height: 100px;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-}
-.LoginContent li{
-  padding-bottom: 10px;
-}
-
-.LoginContent ul{
-  padding: 0;
-  list-style-type: none;
-}
-.LoginContent input{
-padding-left: 20px;
-border: 1px solid gray;
-border-radius: 20px;
-}
-.LoginCheckbox{
-  font-size: 18px;
-}
-.LoginId p{
-  display: inline-block;
-  width: 100px;
-  font-weight: bold;
-}
-.LoginPw p{
-  display: inline-block;
-  width: 100px;
-  font-weight: bold;
-}
-.LoginBtn{
-  width: 100%;
-  height: 45px;
-  margin-bottom: 10px;
-  color: white;
-  border: 1px solid lightgray;
-  border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.836);
-}
-.LoginContent label::after{
-  content: "|";
-  margin-right: 10px;
-}
 .naver-btn{
   background: #2db400 url(/public/img-login-naver.png) left 40px center no-repeat ;
   margin-top: 20px;
@@ -206,6 +202,19 @@ border-radius: 20px;
   padding-left: 190px;
   font-weight: bold;
 }
+/*Join*/
+.Join{
+  width: 800px;
+}
+.JoinContent li>p{
+width: 220px;
+}
+
+.JoinPw-fail{
+  font-size: 14px;
+  color: red;
+}
+
 /*Cart*/
 .CartHeader{
   border-bottom: 3px solid red;
